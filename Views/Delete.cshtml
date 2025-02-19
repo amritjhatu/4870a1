@@ -1,0 +1,9 @@
+@model Code1stUsersRoles.Models.Article
+
+<h1>Delete Article</h1>
+
+<form asp-action="DeleteConfirmed">
+    <input type="hidden" asp-for="ArticleId" />
+    <p>Are you sure you want to delete this article?</p>
+    <button type="submit">Delete</button>
+</form>

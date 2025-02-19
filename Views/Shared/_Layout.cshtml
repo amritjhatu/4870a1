@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"] - My Blog</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Article" asp-action="Index">Articles</a></li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a asp-controller="Article" asp-action="Create">Create Article</a></li>
+                    <li><form asp-area="Identity" asp-page="/Account/Logout" method="post"><button type="submit">Logout</button></form></li>
+                }
+                else
+                {
+                    <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+                    <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+                }
+            </ul>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        <p>Team Members: Ryan, Hoa and Amrit</p>
+    </footer>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

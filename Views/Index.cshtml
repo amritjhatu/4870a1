@@ -1,0 +1,11 @@
+@model IEnumerable<Code1stUsersRoles.Models.Article>
+
+<h1>Home Page</h1>
+
+@foreach (var article in Model)
+{
+    <div>
+        <h2>@article.Title</h2>
+        <p>@article.Body.Substring(0, 100)... <a href="@Url.Action("Details", "Article", new { id = article.ArticleId })">more</a></p>
+    </div>
+}
